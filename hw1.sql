@@ -15,7 +15,7 @@ WHERE amount BETWEEN 3.99 AND 5.99;
 --     of a Dentist And a Mad Cow who must Chase a Secret Agent in A Shark Tank
 SELECT film.title
 FROM inventory
-INNER JOIN film ON inventory.film_id = film.film_id
+JOIN film ON inventory.film_id = film.film_id
 GROUP BY inventory.film_id, film.title, film.description
 ORDER BY COUNT(*) DESC
 LIMIT 1;
@@ -47,8 +47,8 @@ FROM address;
 -- Answer: 508 which is Lambs Cincinatti
 SELECT film.film_id
 FROM actor
-INNER JOIN film_actor ON actor.actor_id = film_actor.actor_id
-INNER JOIN film ON film.film_id = film_actor.film_id
+JOIN film_actor ON actor.actor_id = film_actor.actor_id
+JOIN film ON film.film_id = film_actor.film_id
 GROUP BY film.title, film.film_id
 ORDER BY COUNT(film.title) DESC
 LIMIT 1;
